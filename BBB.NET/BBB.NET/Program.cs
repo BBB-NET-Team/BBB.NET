@@ -25,7 +25,7 @@ namespace BBB.NET
             // Internet or by using other methods such as reading from 
             // a configuration.
             await _client.LoginAsync(TokenType.Bot,
-                Environment.GetEnvironmentVariable("DiscordToken"));
+                "token"); //Change this later to get this from a configuration file
             await _client.StartAsync();
 
             // Block this task until the program is closed.
