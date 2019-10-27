@@ -17,8 +17,7 @@ namespace BBB.NET
         {
             try
             {
-                var json = File.ReadAllText("config.json");
-                dynamic jToken = Newtonsoft.Json.Linq.JToken.Parse(json);
+                dynamic jToken = Newtonsoft.Json.Linq.JToken.Parse(File.ReadAllText("config.json"));
                 return (jToken.prefix, jToken.version, jToken.color, jToken.directory, jToken.token);
             }
             catch (FileNotFoundException)
