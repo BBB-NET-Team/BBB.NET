@@ -9,7 +9,7 @@ using Discord.Commands;
 using Newtonsoft.Json;
 namespace BBB.NET
 {
-    public class Program // uwu i love you goshunjin-sama~ <3
+    public class Program 
     {
         static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         private DiscordSocketClient _client;
