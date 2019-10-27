@@ -16,12 +16,7 @@ namespace BBB.NET
         {
             var json = System.IO.File.ReadAllText("config.json");
             dynamic jToken = Newtonsoft.Json.Linq.JToken.Parse(json);
-            string prefix = jToken.prefix;
-            string version = jToken.version;
-            string color = jToken.color;
-            string directory = jToken.directory;
-            string token = jToken.token;
-            return (prefix, version, color, directory, token);
+            return (jToken.prefix, jToken.version, jToken.color, jToken.directory, jToken.token);
         }
         public async Task MainAsync()
         {
