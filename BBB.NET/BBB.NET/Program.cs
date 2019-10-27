@@ -12,7 +12,7 @@ namespace BBB.NET
     {
         static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         private DiscordSocketClient _client;
-        public (string, string, string, string, string) ParseConfig()
+        public (string Prefix, string Version, string Color, string Directory, string Token) ParseConfig()
         {
             var json = System.IO.File.ReadAllText("config.json");
             dynamic jToken = Newtonsoft.Json.Linq.JToken.Parse(json);
@@ -30,7 +30,7 @@ namespace BBB.NET
             _client.Log += Log;
             var token = ParseConfig();
             await _client.LoginAsync(TokenType.Bot,
-                token.Item5); // TODO: get from a configuration file. As we all know, hardcoding shit is a BAAAAAAAADDDDDDDD idea.
+                token.Token); // TODO: get from a configuration file. As we all know, hardcoding shit is a BAAAAAAAADDDDDDDD idea.
             await _client.StartAsync();
 
             // Block this task until the program is closed.
