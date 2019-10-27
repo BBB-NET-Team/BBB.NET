@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Discord;
 using Discord.WebSocket;
 using Discord.Commands;
+using Newtonsoft.Json;
 namespace BBB.NET
 {
     public class Program // uwu i love you goshunjin-sama~ <3
