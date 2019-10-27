@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.IO;
 using Microsoft.Extensions.DependencyInjection;
 using Discord;
 using Discord.WebSocket;
@@ -14,9 +15,17 @@ namespace BBB.NET
         private DiscordSocketClient _client;
         public (string Prefix, string Version, string Color, string Directory, string Token) ParseConfig()
         {
-            var json = System.IO.File.ReadAllText("config.json");
-            dynamic jToken = Newtonsoft.Json.Linq.JToken.Parse(json);
-            return (jToken.prefix, jToken.version, jToken.color, jToken.directory, jToken.token);
+            try
+            {
+                var json = File.ReadAllText("config.json");
+                dynamic jToken = Newtonsoft.Json.Linq.JToken.Parse(json);
+                return (jToken.prefix, jToken.version, jToken.color, jToken.directory, jToken.token);
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("No config file found; We ain't gonna be running today");
+                throw;
+            }
         }
         public async Task MainAsync()
         {
