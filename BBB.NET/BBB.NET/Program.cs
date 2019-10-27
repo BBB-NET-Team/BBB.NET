@@ -34,7 +34,7 @@ namespace BBB.NET
             _client.Log += Log;
             var token = ParseConfig();
             await _client.LoginAsync(TokenType.Bot,
-                token.Token); // TODO: get from a configuration file. As we all know, hardcoding shit is a BAAAAAAAADDDDDDDD idea.
+                token.Token); 
             await _client.StartAsync();
 
             // Block this task until the program is closed.
