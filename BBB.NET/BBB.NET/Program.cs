@@ -19,7 +19,7 @@ namespace BBB.NET
             _client = new DiscordSocketClient();
 
             _client.Log += Log;
-            var token = ConfigParser.ConfigParser.ParseConfig();
+            var token = ConfigParser.Main.ParseConfig();
             await _client.LoginAsync(TokenType.Bot,
                 token.Token); 
             await _client.StartAsync();

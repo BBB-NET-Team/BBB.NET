@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 namespace ConfigParser
 {
-    public class ConfigParser
+    public class Main
     {
         public static (string Prefix, string Version, string Color, string Directory, string Token) ParseConfig()
         {
