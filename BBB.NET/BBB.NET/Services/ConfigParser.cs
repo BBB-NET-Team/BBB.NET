@@ -14,8 +14,8 @@ namespace ConfigParser
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("No config file found; We aren't gonna be operating today my friend.");
-                Console.WriteLine($"The config file goes in the working directory, which is - {Directory.GetCurrentDirectory()}");
+                Console.WriteLine($"No config file found; We aren't gonna be operating today my friend.\n" +
+                    $"The config file goes in the working directory, which is - {Directory.GetCurrentDirectory()}");
                 throw;
             }
         }
