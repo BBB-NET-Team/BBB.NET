@@ -45,8 +45,8 @@ namespace CommandHandler
             int argPos = 0;
 
             // Determine if the message is a command based on the prefix and make sure no bots trigger commands
-			var prefix = BBB.NET.
-            if (!(message.HasCharPrefix('!', ref argPos) ||
+            var prefix = ConfigParser.ConfigParser.ParseConfig();
+            if /*(!(message.HasCharPrefix('!', ref argPos) */(!(message.HasStringPrefix(prefix.Prefix, ref argPos)||
                 message.HasMentionPrefix(_client.CurrentUser, ref argPos)) ||
                 message.Author.IsBot)
                 return;
