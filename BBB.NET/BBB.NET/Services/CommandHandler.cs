@@ -46,7 +46,7 @@ namespace CommandHandler
 
             // Determine if the message is a command based on the prefix and make sure no bots trigger commands
             var prefix = ConfigParser.Main.ParseConfig();
-            if /*(!(message.HasCharPrefix('!', ref argPos) */(!(message.HasStringPrefix(prefix.Prefix, ref argPos)||
+            if (!(message.HasStringPrefix(prefix.Prefix, ref argPos)||
                 message.HasMentionPrefix(_client.CurrentUser, ref argPos)) ||
                 message.Author.IsBot)
                 return;
