@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using BBB.NET;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
@@ -45,8 +46,7 @@ namespace CommandHandler
             int argPos = 0;
 
             // Determine if the message is a command based on the prefix and make sure no bots trigger commands
-            var prefix = ConfigParser.Main.ParseConfig();
-            if (!(message.HasStringPrefix(prefix.Prefix, ref argPos)||
+            if (!(message.HasStringPrefix(Program.config.Prefix, ref argPos)||
                 message.HasMentionPrefix(_client.CurrentUser, ref argPos)) ||
                 message.Author.IsBot)
                 return;
